@@ -6,7 +6,7 @@ Setting up complete authentication flow for a service can be really painful. By 
 
 You can find my <a href="https://medium.com/@nandhaez/2019-how-i-set-up-authentication-with-jwt-in-just-a-few-lines-of-code-with-rails-5-api-devise-9db7d3cee2c0">detailed blog</a> with step by step instructions on the setup.
 
-# Repo Setup Instructions 
+# Repo Setup Instructions
 
 Setup the databases
 ```sh
