@@ -3,6 +3,8 @@ class CreateListings < ActiveRecord::Migration[5.2]
     create_table :listings do |t|
       t.string :title
       t.string :description
+      t.integer :kind, default: 0
+      t.references :user
 
       t.timestamps
     end
