@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :update, :destroy]
+  before_action :set_listing, only: %i[show update destroy]
 
   # GET /listings
   def index
@@ -39,13 +41,14 @@ class ListingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_listing
-      @listing = Listing.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def listing_params
-      params.require(:listing).permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def listing_params
+    params.require(:listing).permit(:title, :description)
+  end
 end
