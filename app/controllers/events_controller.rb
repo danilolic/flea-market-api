@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
+    @events = @calendar.events
 
     render json: @events
   end
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    @event = Event.new(event_params)
+    @event = @calendar.events.build.new(event_params)
 
     if @event.save
       render json: @event, status: :created, location: @event
@@ -42,6 +42,10 @@ class EventsController < ApplicationController
 
   private
 
+  def set_calendar
+    @calendar = Calendar.find(params[:calendar_id])
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
@@ -49,6 +53,6 @@ class EventsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def event_params
-    params.fetch(:event, {})
+    params.require(:event).permit(:date, :time, :title, :description, :local)
   end
 end
