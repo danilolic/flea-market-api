@@ -9,4 +9,10 @@ class User < ApplicationRecord
 
   has_many :listings, dependent: :destroy
   has_one :calendar
+
+  after_create :create_calendar
+
+  def create_calendar
+    self.calendar = Calendar.create
+  end
 end
