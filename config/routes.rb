@@ -8,7 +8,7 @@ Rails.application.routes.draw do
                      }
   resources :listings
   resource :user, only: :show do
-    resource :calendar, only: :show do
+    resources :calendar, only: :show do
       resources :events
     end
   end
