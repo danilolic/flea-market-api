@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
 
   has_many :listings, dependent: :destroy
+  has_many :subjects, dependent: :destroy
   has_one :calendar
 
   after_create :create_calendar
