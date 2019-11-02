@@ -2,4 +2,6 @@
 
 class Event < ApplicationRecord
   belongs_to :calendar
+  has_many :event_subjects
+  has_many :subjects, through: :event_subjects
 end
