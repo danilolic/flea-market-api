@@ -17,10 +17,10 @@ class SubjectsController < ApplicationController
 
   # POST /subjects
   def create
-    @subject = current_user.build(subject_params)
+    @subject = current_user.subjects.build(subject_params)
 
     if @subject.save
-      render json: @subject, status: :created, location: @subject
+      render json: @subject, status: :created
     else
       render json: @subject.errors, status: :unprocessable_entity
     end
