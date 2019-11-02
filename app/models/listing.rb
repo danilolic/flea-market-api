@@ -3,7 +3,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
 
-  enum status: %i[sell lend exchange]
+  enum kind: %i[sell lend exchange]
 
   validates :title, presence: true
   validates :description, presence: true
