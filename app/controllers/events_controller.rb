@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = @calendar.events
+    @events = current_user.calendar.events
 
     render json: @events
   end
@@ -17,10 +17,10 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
-    @event = @calendar.events.build.new(event_params)
+    @event = current_user.calendar.events.build(event_params)
 
     if @event.save
-      render json: @event, status: :created, location: @event
+      render json: @event, status: :created
     else
       render json: @event.errors, status: :unprocessable_entity
     end
@@ -41,10 +41,6 @@ class EventsController < ApplicationController
   end
 
   private
-
-  def set_calendar
-    @calendar = Calendar.find(params[:calendar_id])
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_event
