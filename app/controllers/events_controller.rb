@@ -7,13 +7,10 @@ class EventsController < ApplicationController
   # GET /events
   def index
     @events = current_user.calendar.events
-
-    render json: @events
   end
 
   # GET /events/1
   def show
-    render json: @event
   end
 
   # POST /events
