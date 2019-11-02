@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ListingsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_listing, only: %i[show update destroy]
 
   # GET /listings
