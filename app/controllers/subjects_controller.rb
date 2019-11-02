@@ -7,13 +7,10 @@ class SubjectsController < ApplicationController
   # GET /subjects
   def index
     @subjects = current_user.subjects
-
-    render json: @subjects
   end
 
   # GET /subjects/1
   def show
-    render json: @subject
   end
 
   # POST /subjects
