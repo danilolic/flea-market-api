@@ -20,8 +20,8 @@ namespace :populate_with do
 
     puts 'create listing'
     Listing.create(title: 'Apostila de banco de dados', description: 'ótimo estado', kind: 'sell', price: '1590', user: user)
-    Listing.create(title: 'Apostila de ED', description: 'ótimo estado', kind: 'sell', price: '1680', user: user)
-    Listing.create(title: 'Livro de SI', description: 'ótimo estado', kind: 'sell', price: '1450', user: user)
+    Listing.create(title: 'Apostila de ED', description: 'ótimo estado', kind: 'lend', price: '1680', user: user)
+    Listing.create(title: 'Livro de SI', description: 'ótimo estado', kind: 'exchange', price: '1450', user: user)
     Listing.create(title: 'Livro de Redes', description: 'ótimo estado', kind: 'sell', price: '1899', user: user)
   end
 end
