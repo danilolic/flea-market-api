@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :update, :destroy]
+  before_action :set_subject, only: %i[show update destroy]
 
   # GET /subjects
   def index
@@ -39,13 +41,14 @@ class SubjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_subject
-      @subject = Subject.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def subject_params
-      params.require(:subject).permit(:name, :time)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_subject
+    @subject = Subject.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def subject_params
+    params.require(:subject).permit(:name, :time)
+  end
 end
