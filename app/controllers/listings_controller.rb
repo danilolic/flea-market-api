@@ -8,12 +8,12 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.all
 
-    render json: @listings
+    respond_with @listings
   end
 
   # GET /listings/1
   def show
-    render json: @listing
+    respond_with @listing
   end
 
   # POST /listings
@@ -21,7 +21,7 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
 
     if @listing.save
-      render json: @listing, status: :created
+      render 'listings/show.json', status: :created
     else
       render json: @listing.errors, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1
   def update
     if @listing.update(listing_params)
-      render json: @listing
+      render 'listings/show.json', status: :ok
     else
       render json: @listing.errors, status: :unprocessable_entity
     end
@@ -50,6 +50,6 @@ class ListingsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def listing_params
-    params.require(:listing).permit(:title, :description, :kind, :price)
+    params.require(:listing).permit(:title, :description, :kind, :price, :avatar)
   end
 end
