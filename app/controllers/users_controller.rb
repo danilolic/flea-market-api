@@ -3,13 +3,13 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
-    render json: @user
+    respond_with @user
   end
 
   def update
     @user = current_user
     if @user.update(user_params)
-      render json: @user, status: :ok
+      render 'users/show.json', status: :ok
     else
       render json: @user.errors, status: :unprocessable_entity
     end
