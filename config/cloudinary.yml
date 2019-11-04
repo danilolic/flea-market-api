@@ -1,0 +1,9 @@
+development:
+  cloud_name: "fleamarketapi"
+  api_key: "455151397377789"
+  api_secret: "ZgfW8ep3M8ZOqPlRaLG7OVqlRVw"
+
+production:
+  cloud_name: "fleamarketapi"
+  api_key: "455151397377789"
+  api_secret: "ZgfW8ep3M8ZOqPlRaLG7OVqlRVw"

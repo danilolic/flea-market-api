@@ -7,7 +7,7 @@ Rails.application.routes.draw do
                        registrations: 'registrations'
                      }
   resources :listings
-  resource :user, only: :show do
+  resource :user, only: %i[show update] do
     resources :subjects
     resource :calendar, only: :show do
       resources :events
