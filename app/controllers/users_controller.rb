@@ -9,9 +9,9 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      render json: { result: true, msg: ' The image is sucessfully uploaded!!' }, status: :created
+      render json: @user, status: :ok
     else
-      render json: { result: false, user: @user.errors }, status: :unprocessable_entity
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
