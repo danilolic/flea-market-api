@@ -6,7 +6,9 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = current_user.calendar.events
+    @events = Event.where(calendar: current_user.calendar)
+                   .includes(:subjects)
+                   .order('events.date', 'subjects.time')
   end
 
   # GET /events/1
