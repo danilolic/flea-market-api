@@ -6,7 +6,11 @@ class ListingsController < ApplicationController
 
   # GET /listings
   def index
-    @listings = Listing.all
+    @listings = if params[:my_listings]
+                  current_user.listings
+                else
+                  Listing.all
+                end
 
     respond_with @listings
   end
