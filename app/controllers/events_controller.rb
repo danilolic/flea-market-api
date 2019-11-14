@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  load_and_authorize_resource
   before_action :set_event, only: %i[show update destroy]
 
   # GET /events
@@ -49,6 +48,6 @@ class EventsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def event_params
-    params.require(:event).permit(:date, :time, :title, :description, :local)
+    params.require(:event).permit(:date, :time, :title, :description, :local, :subject_ids)
   end
 end
