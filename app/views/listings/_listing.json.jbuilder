@@ -1,3 +1,4 @@
+json.id listing.id
 json.title listing.title
 json.description listing.description
 json.kind listing.kind
